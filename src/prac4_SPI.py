@@ -63,11 +63,13 @@ def getTemp():
     return temp;
 
 def formatOutput():
-    output[0] = "|"
-    output[1] = "|"
-    output[2] = str(round(getPot(),2)) +  "|"
-    output[3] = str(round(getTemp(),2)) + "|"
-    output[4] = str(round(getLight(),2)) +"|"
+    #Insert sys time here
+    output[0] = " Time\t"
+    #Insert interrupt time here
+    output[1] = " Timer\t"
+    output[2] = str(round(getPot(),2)) +  " V\t "
+    output[3] = str(round(getTemp(),2)) + " C\t "
+    output[4] = str(round(getLight(),2)) +"%\t "
 
 while True:
     updateADCVals();
@@ -75,6 +77,6 @@ while True:
     # delay for a half second
     time.sleep(0.1)
     #load output string with data
-    print output
+    print ' | '.join(output)
 
 
