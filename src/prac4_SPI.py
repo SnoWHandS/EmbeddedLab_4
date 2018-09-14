@@ -4,13 +4,9 @@ import RPi.GPIO as GPIO
 import time
 import Adafruit_MCP3008
 import os
+from time import localtime, strftime
 
 GPIO.setmode(GPIO.BCM)
-
-# Open SPI bus
-#spi = spidev.SpiDev()
-# create spi object
-#spi.open(0,0)
 
 # pin definition
 SPICLK = 11
@@ -64,7 +60,7 @@ def getTemp():
 
 def formatOutput():
     #Insert sys time here
-    output[0] = " Time\t"
+    output[0] = strftime("%H:%M:%S", localtime())
     #Insert interrupt time here
     output[1] = " Timer\t"
     output[2] = str(round(getPot(),2)) +  " V\t "
@@ -73,10 +69,11 @@ def formatOutput():
 
 while True:
     updateADCVals();
+    #load adc vals into output array
     formatOutput();
-    # delay for a half second
+    # delay for 100ms
     time.sleep(0.1)
-    #load output string with data
+    #print output with lines between values
     print ' | '.join(output)
 
 
