@@ -14,7 +14,7 @@ def stop(port):
 def disp(port):
     print("pressed display"+str(port))
 
-handler = prac4_interrupts.interruptHandler(self, 2, reset(), 3, freq(), 4, stop(), 14, disp())
+handler = prac4_interrupts.interruptHandler(2, reset(), 3, freq(), 4, stop(), 14, disp())
 
 while True:
     time.sleep(0)
