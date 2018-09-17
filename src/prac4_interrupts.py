@@ -9,7 +9,7 @@ class interruptHandler:
     button2 = 0
     button3 = 0
     button4 = 0
-    bounce = 200
+    bounce = 400
 
     def __init__(self, b1, f1, b2, f2, b3, f3, b4, f4):
 
