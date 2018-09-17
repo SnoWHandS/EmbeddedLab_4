@@ -1,5 +1,6 @@
 import prac4_SPI
 import prac4_interrupts
+import time
 
 def reset(port):
     print("pressed reset"+str(port))
@@ -15,4 +16,5 @@ def disp(port):
 
 handler = prac4_interrupts.interruptHandler(self, 2, reset(), 3, freq(), 4, stop(), 14, disp())
 
-
+while True:
+    time.sleep(0)
