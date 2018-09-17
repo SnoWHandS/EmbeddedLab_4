@@ -20,8 +20,8 @@ output = prac4_SPI.output
 readqueue =  collections.deque("",5)
 
 header = [0]*5
-header[0] = " Time\t"
-header[1] = " Timer\t"
+header[0] = " Time\t "
+header[1] = " Timer\t "
 header[2] = " Pot\t "
 header[3] = " Temp\t "
 header[4] = " Light \t "
@@ -66,7 +66,7 @@ while True:
     localtime = time.localtime()
     settime = time.time()
     output[1] = datetime.datetime.fromtimestamp(settime-starttime).strftime("%H:%M:%S")
-    output[0] = datetime.datetime.now().strftime('H%:%M:%S:')
+    output[0] = datetime.datetime.now().strftime('%H:%M:%S:')
     outstring = ' | '.join(output)
 
     if started:
