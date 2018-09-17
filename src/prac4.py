@@ -17,9 +17,7 @@ values = prac4_SPI.values
 
 output = prac4_SPI.output
 
-readqueue =  collections.deque()
-
-readqueue.maxlen = 5
+readqueue =  collections.deque("",5)
 
 def reset(port):
     global timer
