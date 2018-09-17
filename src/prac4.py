@@ -20,8 +20,8 @@ output = prac4_SPI.output
 readqueue =  collections.deque("",5)
 
 def reset(port):
-    global timer
-    timer = time.time()
+    global starttime
+    starttime = time.time()
     sys.stdout.write("\u001b[2J")
     print("reset timer")
 
@@ -41,16 +41,15 @@ def stop(port):
 def disp(port):
     print("pressed display"+str(port))
     global readqueue
-
     for k in readqueue:
         print(k)
 
 handler = prac4_interrupts.interruptHandler(2, reset, 3, freq, 4, stop, 14, disp)
 
 while True:
+
     time.sleep(flist[frequency])
 
-    readqueue.clear()
     prac4_SPI.updateADCVals()
     prac4_SPI.formatOutput()
     localtime = time.localtime()
