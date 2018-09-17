@@ -54,7 +54,8 @@ while True:
     prac4_SPI.updateADCVals()
     prac4_SPI.formatOutput()
     localtime = time.localtime()
-    output[1] = datetime.datetime.fromtimestamp(localtime-starttime).strftime("%H:%M:%S")
+    settime = time.time()
+    output[1] = datetime.datetime.fromtimestamp(settime-starttime).strftime("%H:%M:%S")
     output[0] = datetime.datetime.fromtimestamp(localtime).strftime('%H:%M:%S')
     outstring = ' | '.join(output)
 
