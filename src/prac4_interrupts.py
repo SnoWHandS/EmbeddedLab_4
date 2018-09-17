@@ -29,8 +29,8 @@ class interruptHandler:
         GPIO.setup(self.button3, GPIO.IN, pull_up_down=GPIO.PUD_UP)
         GPIO.setup(self.button4, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
-        GPIO.add_event_detect(self.button1, GPIO.FALLING, callback=f1, bouncetime=self.bounce)
-        GPIO.add_event_detect(self.button2, GPIO.FALLING, callback=f2, bouncetime=self.bounce)
-        GPIO.add_event_detect(self.button3, GPIO.FALLING, callback=f3, bouncetime=self.bounce)
-        GPIO.add_event_detect(self.button4, GPIO.FALLING, callback=f4, bouncetime=self.bounce)
+        GPIO.add_event_detect(self.button1, GPIO.RISING, callback=f1, bouncetime=self.bounce)
+        GPIO.add_event_detect(self.button2, GPIO.RISING, callback=f2, bouncetime=self.bounce)
+        GPIO.add_event_detect(self.button3, GPIO.RISING, callback=f3, bouncetime=self.bounce)
+        GPIO.add_event_detect(self.button4, GPIO.RISING, callback=f4, bouncetime=self.bounce)
 
