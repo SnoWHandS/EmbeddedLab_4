@@ -19,11 +19,22 @@ output = prac4_SPI.output
 
 readqueue =  collections.deque("",5)
 
+header = []*5
+header[0] = " Time\t"
+header[1] = " Timer\t"
+header[2] = " Pot\t "
+header[3] = " Temp\t "
+header[4] = " Light \t "
+cleanheader = ' | '.join(header)
+print(cleanheader)
+
 def reset(port):
     global starttime
+    global cleanheader
     starttime = time.time()
     sys.stdout.write(u"\u001b[2J")
     print("reset timer")
+    print(cleanheader)
 
 
 def freq(port):
@@ -39,7 +50,7 @@ def stop(port):
 
 
 def disp(port):
-    print("pressed display"+str(port))
+    print("pressed display")
     global readqueue
     for k in readqueue:
         print(k)
@@ -55,7 +66,7 @@ while True:
     localtime = time.localtime()
     settime = time.time()
     output[1] = datetime.datetime.fromtimestamp(settime-starttime).strftime("%H:%M:%S")
-    output[0] = datetime.datetime.now().strftime('%H:%M:%S')
+    output[0] = datetime.datetime.now().strftime('H%:%M:%S:')
     outstring = ' | '.join(output)
 
     if started:
