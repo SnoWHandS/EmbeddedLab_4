@@ -56,7 +56,7 @@ while True:
     localtime = time.localtime()
     settime = time.time()
     output[1] = datetime.datetime.fromtimestamp(settime-starttime).strftime("%H:%M:%S")
-    output[0] = datetime.datetime.fromtimestamp(localtime).strftime('%H:%M:%S')
+    output[0] = datetime.now().strftime('%H:%M:%S')
     outstring = ' | '.join(output)
 
     if started:
