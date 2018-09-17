@@ -9,6 +9,7 @@ class interruptHandler:
     button2 = 0
     button3 = 0
     button4 = 0
+    bounce = 750
 
     def __init__(self, b1, f1, b2, f2, b3, f3, b4, f4):
 
@@ -28,8 +29,8 @@ class interruptHandler:
         GPIO.setup(self.button3, GPIO.IN, pull_up_down=GPIO.PUD_UP)
         GPIO.setup(self.button4, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
-        GPIO.add_event_detect(self.button1, GPIO.FALLING, callback=f1, bouncetime=200)
-        GPIO.add_event_detect(self.button2, GPIO.FALLING, callback=f2, bouncetime=200)
-        GPIO.add_event_detect(self.button3, GPIO.FALLING, callback=f3, bouncetime=200)
-        GPIO.add_event_detect(self.button4, GPIO.FALLING, callback=f4, bouncetime=200)
+        GPIO.add_event_detect(self.button1, GPIO.FALLING, callback=f1, bouncetime=bounce)
+        GPIO.add_event_detect(self.button2, GPIO.FALLING, callback=f2, bouncetime=bounce)
+        GPIO.add_event_detect(self.button3, GPIO.FALLING, callback=f3, bouncetime=bounce)
+        GPIO.add_event_detect(self.button4, GPIO.FALLING, callback=f4, bouncetime=bounce)
 
