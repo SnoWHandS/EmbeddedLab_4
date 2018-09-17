@@ -1,6 +1,8 @@
 import prac4_SPI
 import prac4_interrupts
+import collections.deque
 import time
+import datetime
 import sys
 
 frequency = 0 # currently selected frequency
@@ -9,15 +11,19 @@ flist = [0.5,1,2] # possible frequencies
 
 started = True # are sensors running
 
-timer = 0 # Time since last reset
+starttime = time.time() # Time since last reset
 
 values = prac4_SPI.values
 
 output = prac4_SPI.output
 
+readqueue =  deque()
+
+readqueue.maxlen = 5
+
 def reset(port):
     global timer
-    timer = 0
+    timer = time.time()
     sys.stdout.write("\u001b[2J")
     print("reset timer")
 
@@ -36,16 +42,28 @@ def stop(port):
 
 def disp(port):
     print("pressed display"+str(port))
+    global readqueue
+
+    for k in readqueue:
+        print(k)
 
 handler = prac4_interrupts.interruptHandler(2, reset, 3, freq, 4, stop, 14, disp)
 
 while True:
     time.sleep(flist[frequency])
-    
+
+    readqueue.clear()
+    prac4_SPI.updateADCVals()
+    prac4_SPI.formatOutput()
+    localtime = time.localtime()
+    output[1] = datetime.datetime.fromtimestamp(localtime-starttime).strftime("%H:%M:%S")
+    output[0] = datetime.datetime.fromtimestamp(localtime).strftime('%H:%M:%S')
+    outstring = ' | '.join(output)
+
     if started:
-        prac4_SPI.updateADCVals()
-        prac4_SPI.formatOutput()
-        
-        print( ' | '.join(output))
+        readqueue.clear()
+        print(outstring)
+    else:
+        readqueue.append(outstring)
 
 
