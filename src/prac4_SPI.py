@@ -72,12 +72,13 @@ def formatOutput():
     output[3] = str(round(getTemp(),2)) + " C\t "
     output[4] = str(round(getLight(),2)) +"%\t "
 
-while True:
-    updateADCVals();
-    formatOutput();
-    # delay for a half second
-    time.sleep(0.1)
-    #load output string with data
-    print ' | '.join(output)
+if __name__ == "__main__":
 
+    while True:
+        updateADCVals();
+        formatOutput();
+        # delay for a half second
+        time.sleep(0.1)
+        #load output string with data
+        print ' | '.join(output)
 
