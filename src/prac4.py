@@ -16,7 +16,7 @@ values = prac4_SPI.values
 output = prac4_SPI.output
 
 def reset(port):
-    global timer = 0
+    global timer
     timer = 0
     sys.stdout.write("\u001b[2J")
     print("reset timer")
