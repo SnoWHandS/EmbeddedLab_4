@@ -22,7 +22,7 @@ readqueue =  collections.deque("",5)
 def reset(port):
     global starttime
     starttime = time.time()
-    sys.stdout.write("\u001b[2J")
+    sys.stdout.write(u"\u001b[2J")
     print("reset timer")
 
 
