@@ -17,17 +17,22 @@ output = prac4_SPI.output
 
 def reset(port):
     global timer = 0
+    timer = 0
     sys.stdout.write("\u001b[2J")
     print("reset timer")
 
 
 def freq(port):
-    global frequency = ((frequency + 1) % 3)
+    global frequency
+    frequency = ((frequency + 1) % 3)
     print("New frequency: " + str(flist[frequency]))
 
+
 def stop(port):
-    global started = not started
+    global started
+    started = not started
     print("Set Sensors Running: " + str(started))
+
 
 def disp(port):
     print("pressed display"+str(port))
