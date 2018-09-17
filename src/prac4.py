@@ -24,7 +24,7 @@ header[0] = " Time\t "
 header[1] = " Timer\t "
 header[2] = " Pot\t "
 header[3] = " Temp\t "
-header[4] = " Light \t "
+header[4] = " Light\t "
 cleanheader = ' | '.join(header)
 print(cleanheader)
 
