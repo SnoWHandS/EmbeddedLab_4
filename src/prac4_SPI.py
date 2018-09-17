@@ -4,6 +4,7 @@ import RPi.GPIO as GPIO
 import time
 import Adafruit_MCP3008
 import os
+import prac4_interrupts
 
 GPIO.setmode(GPIO.BCM)
 
