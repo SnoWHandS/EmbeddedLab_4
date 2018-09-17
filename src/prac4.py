@@ -19,7 +19,7 @@ output = prac4_SPI.output
 
 readqueue =  collections.deque("",5)
 
-header = []*5
+header = [0]*5
 header[0] = " Time\t"
 header[1] = " Timer\t"
 header[2] = " Pot\t "
