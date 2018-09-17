@@ -1,17 +1,17 @@
 import prac4_SPI
 import prac4_interrupts
 
-def reset():
-    print("pressed reset")
+def reset(port):
+    print("pressed reset"+str(port))
 
-def freq():
-    print("pressed frequency")
+def freq(port):
+    print("pressed frequency"+str(port))
 
-def stop():
-    print("pressed stop")
+def stop(port):
+    print("pressed stop"+str(port))
 
-def disp():
-    print("pressed display")
+def disp(port):
+    print("pressed display"+str(port))
 
 handler = prac4_interrupts.interruptHandler(self, 2, reset(), 3, freq(), 4, stop(), 14, disp())
 
