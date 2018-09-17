@@ -1,6 +1,6 @@
 import prac4_SPI
 import prac4_interrupts
-import collections.deque
+import collections
 import time
 import datetime
 import sys
@@ -17,7 +17,7 @@ values = prac4_SPI.values
 
 output = prac4_SPI.output
 
-readqueue =  deque()
+readqueue =  collections.deque()
 
 readqueue.maxlen = 5
 
