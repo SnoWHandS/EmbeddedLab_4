@@ -4,7 +4,7 @@ import RPi.GPIO as GPIO
 import time
 import Adafruit_MCP3008
 import os
-from time import localtime, strftime
+import prac4_interrupts
 
 GPIO.setmode(GPIO.BCM)
 
@@ -76,4 +76,13 @@ while True:
     #print output with lines between values
     print ' | '.join(output)
 
+if __name__ == "__main__":
+
+    while True:
+        updateADCVals();
+        formatOutput();
+        # delay for a half second
+        time.sleep(0.1)
+        #load output string with data
+        print ' | '.join(output)
 
